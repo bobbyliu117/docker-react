@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build:
+      # 00 context -> 路径
+      context: client
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      # 00 if container needs node_modules, refer container itself
+      - /app/node_modules
+      # 00 if need /app, refer host's ./client
+      - ./client:/app
+  tests:
+    build:
+      context: client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    # 00 override default start CMD
+    command: ["npm", "run", "test"]
