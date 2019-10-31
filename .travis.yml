@@ -22,5 +22,4 @@ deploy:
     # heroku git:remote -a docker-react-1
     app: docker-react-1
     on:
-      repo: bobbyliu117/docker-react
       branch: master
