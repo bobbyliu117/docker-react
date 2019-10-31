@@ -6,8 +6,6 @@ sudo: required
 services:
   - docker
 
-# 00 used by heroku
-language: heroku/nodejs
 # 00
 before_install:
   - docker build -t bobbyliu117/docker-react-1 -f client/Dockerfile.dev ./client
