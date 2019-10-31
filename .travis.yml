@@ -8,7 +8,7 @@ services:
 
 # 00
 before_install:
-  - docker build -t bobbyliu117/docker-react-1 -f client/Dockerfile.dev .
+  - docker build -t bobbyliu117/docker-react-1 -f client/Dockerfile.dev /client
 script:
   # 00 default test hangs there w/o exit result -> CI=true helps end the test w/ result
   # previous -> -- --coverage
