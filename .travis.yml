@@ -1,0 +1,15 @@
+# 00 if "rakefile not found", uncomment line below
+# language: generic
+# 00
+sudo: required
+# 00
+services:
+  - docker
+
+# 00
+before_install:
+  - docker build -t bobbyliu117/docker-react-1 -f Dockerfile.dev ./client
+script:
+  # 00 default test hangs there w/o exit result -> CI=true helps end the test w/ result
+  # previous -> -- --coverage
+  - docker run -e CI=true bobbyliu117/docker-react-1 npm run test
