@@ -18,8 +18,9 @@ deploy:
   api_key:
     # 00 heroku auth:token
     secure: "$HEROKU_AUTH_TOKEN"
-    # 00 used for -> connect heroku remote 
-    # heroku git:remote -a docker-react-1
-    app: docker-react-1
-    on:
-      branch: master
+  # 00 used for -> connect heroku remote 
+  # heroku git:remote -a docker-react-1
+  app: docker-react-1
+  on:
+    repo: bobbyliu117/docker-react
+    branch: master
