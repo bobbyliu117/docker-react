@@ -13,3 +13,14 @@ script:
   # 00 default test hangs there w/o exit result -> CI=true helps end the test w/ result
   # previous -> -- --coverage
   - docker run -e CI=true bobbyliu117/docker-react-1 npm run test
+deploy:
+  provider: heroku
+  api_key:
+    # 00 heroku auth:token
+    secure: $HEROKU_AUTH_TOKEN
+    # 00 used for -> connect heroku remote 
+    # heroku git:remote -a docker-react-1
+    app: docker-react-1
+    on:
+      repo: bobbyliu117/docker-react
+      branch: master
